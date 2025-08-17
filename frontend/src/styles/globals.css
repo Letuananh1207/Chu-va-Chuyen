@@ -1,0 +1,159 @@
+/* Reset nhẹ */
+* {
+  box-sizing: border-box;
+}
+html,
+body,
+#root {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans",
+    sans-serif;
+  line-height: 1.5;
+  color: #111;
+  background: #fff;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Layout cơ bản */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.app-header {
+  position: sticky;
+  top: 0;
+  backdrop-filter: saturate(1.2) blur(6px);
+  background: rgba(255, 255, 255, 0.8);
+  border-bottom: 1px solid #eee;
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  height: 60px;
+}
+.brand {
+  font-weight: 800;
+  letter-spacing: 0.3px;
+}
+.nav a {
+  margin-right: 12px;
+}
+
+.quick-search {
+  margin-left: auto;
+  display: flex;
+  gap: 8px;
+}
+.quick-search input {
+  padding: 6px 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  min-width: 200px;
+}
+.quick-search button {
+  padding: 6px 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #f7f7f7;
+  cursor: pointer;
+}
+.quick-search button:hover {
+  background: #eee;
+}
+
+.main-content {
+  padding: 24px 0 56px;
+}
+
+.app-footer {
+  border-top: 1px solid #eee;
+  padding: 12px 0;
+  color: #666;
+  font-size: 14px;
+}
+
+/* Trang chủ */
+.home-open {
+  display: flex;
+  gap: 8px;
+  margin: 12px 0 8px;
+}
+.home-open input {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+.home-open button {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #f7f7f7;
+  cursor: pointer;
+}
+.home-open button:hover {
+  background: #eee;
+}
+
+/* Hanzi box */
+.hanzi-box {
+  display: inline-block;
+  margin: 12px 0;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+.hanzi-canvas {
+  margin-bottom: 8px;
+}
+.hanzi-actions {
+  display: flex;
+  gap: 8px;
+}
+.hanzi-actions button {
+  padding: 6px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: #f7f7f7;
+  cursor: pointer;
+}
+.hanzi-actions button:hover {
+  background: #eee;
+}
+
+/* Char page */
+.char-header {
+  margin-bottom: 16px;
+}
+.char-symbol {
+  font-size: 64px;
+  margin: 0;
+}
+.char-meta div {
+  margin: 4px 0;
+}
+.char-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin: 20px 0;
+}
+.exercise-list {
+  list-style: none;
+  padding: 0;
+}
+.exercise-item {
+  padding: 8px 12px;
+  margin-bottom: 8px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fafafa;
+}
