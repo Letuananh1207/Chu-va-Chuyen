@@ -1,0 +1,149 @@
+.charPage {
+  padding: 20px;
+}
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 32px;
+}
+
+/* Left */
+.leftPane {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px dashed #ccc;
+  padding-right: 40px;
+}
+
+.charSub {
+  display: flex;
+  gap: 10px;
+}
+
+.charSub > span {
+  font-weight: bold;
+  padding: 2px 10px;
+  font-size: 14px;
+  color: white;
+}
+
+.charBox {
+  text-align: center;
+  border: 1px dashed #ccc;
+  padding: 16px;
+  background: #fff;
+  margin-bottom: 30px;
+  background-image: url(../../assets/logo_watermark.png);
+  background-size: 80px;
+}
+
+.pinyin {
+  font-size: 18px;
+  font-weight: bold;
+  border: 1px solid var(--primary-color);
+  width: 30%;
+  margin: 0 auto;
+  background-color: white;
+}
+
+.vocabBox {
+  background: #fff;
+  padding: 16px;
+  border-radius: 8px;
+  border-left: 6px solid #b22222;
+}
+
+.vocabBox h3 {
+  margin-top: 0;
+  color: var(--primary-color);
+}
+
+/* Right */
+.rightPane {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 16px;
+  background-image: url(../../assets/logo_watermark.png);
+  background-size: 80px;
+}
+
+.practiceTitle {
+  color: #b22222;
+  margin-bottom: 16px;
+  text-align: center;
+  margin: 0;
+  padding-bottom: 1em;
+  border-bottom: 1px dashed var(--border-color);
+}
+
+.practiceButtons {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.practiceBtn {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #b22222;
+  background: #fff;
+  color: #b22222;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.practiceBtn:hover {
+  background: #b22222;
+  color: #fff;
+}
+
+/* Examples */
+.examples {
+  margin-top: 20px;
+}
+
+/* Exercises */
+.exercises {
+  margin-top: 32px;
+}
+
+.exerciseList {
+  list-style: none;
+  padding: 0;
+}
+
+.exerciseItem {
+  padding: 8px;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  background: #fafafa;
+}
+
+/* Navigation */
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 32px;
+}
+
+.prevBtn,
+.nextBtn {
+  background: #b22222;
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.prevBtn:hover,
+.nextBtn:hover {
+  opacity: 0.9;
+}

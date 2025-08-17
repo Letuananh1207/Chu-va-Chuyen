@@ -7,14 +7,56 @@ body,
 #root {
   height: 100%;
 }
+
+:root {
+  --primary-color: #c9363f;
+  --bg-color: #f6f6f6;
+  --border-color: grey;
+  --hsk1-color: #f8b521;
+  --hsk2-color: #1994a4;
+  --hsk3-color: #f36f27;
+  --hsk4-color: #c12405;
+  --hsk5-color: #1a3f76;
+  --hsk6-color: #50365d;
+}
+
+.hsk1 {
+  background-color: var(--hsk1-color);
+}
+
+.hsk2 {
+  background-color: var(--hsk2-color);
+}
+
+.hsk3 {
+  background-color: var(--hsk3-color);
+}
+
+.hsk4 {
+  background-color: var(--hsk4-color);
+}
+
+.hsk5 {
+  background-color: var(--hsk5-color);
+}
+
+.hsk6 {
+  background-color: var(--hsk6-color);
+}
+
+.grow {
+  flex-grow: 1;
+}
+
 body {
   margin: 0;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans",
     sans-serif;
   line-height: 1.5;
   color: #111;
-  background: #fff;
+  background: var(--bg-color);
 }
+
 a {
   color: inherit;
   text-decoration: none;
@@ -27,23 +69,38 @@ a {
   padding: 0 16px;
 }
 
+.app-header .container {
+  display: flex;
+  justify-content: center;
+}
+
 .app-header {
   position: sticky;
+  height: 80px;
   top: 0;
   backdrop-filter: saturate(1.2) blur(6px);
   background: rgba(255, 255, 255, 0.8);
   border-bottom: 1px solid #eee;
 }
-.header-inner {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  height: 60px;
-}
+
 .brand {
   font-weight: 800;
   letter-spacing: 0.3px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
+
+.brand > img {
+  height: 58px;
+}
+
+.brand-text {
+  color: #c81a17;
+  font-size: 21px;
+}
+
 .nav a {
   margin-right: 12px;
 }
@@ -104,20 +161,20 @@ a {
 }
 
 /* Hanzi box */
-.hanzi-box {
-  display: inline-block;
-  margin: 12px 0;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-}
+
 .hanzi-canvas {
-  margin-bottom: 8px;
+  margin-bottom: 22px;
+  background-image: url(../assets/card_bg.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
+
 .hanzi-actions {
   display: flex;
   gap: 8px;
 }
+
 .hanzi-actions button {
   padding: 6px 12px;
   border: 1px solid #ddd;
@@ -127,33 +184,4 @@ a {
 }
 .hanzi-actions button:hover {
   background: #eee;
-}
-
-/* Char page */
-.char-header {
-  margin-bottom: 16px;
-}
-.char-symbol {
-  font-size: 64px;
-  margin: 0;
-}
-.char-meta div {
-  margin: 4px 0;
-}
-.char-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  margin: 20px 0;
-}
-.exercise-list {
-  list-style: none;
-  padding: 0;
-}
-.exercise-item {
-  padding: 8px 12px;
-  margin-bottom: 8px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background: #fafafa;
 }

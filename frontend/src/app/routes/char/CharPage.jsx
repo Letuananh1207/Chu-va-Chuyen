@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import HanziWriterBox from "../../components/HanziWriterBox.jsx";
 import { getCharacter } from "../../../lib/api.js";
+import styles from "../../../styles/pages/CharPage.module.css";
+import { motion } from "framer-motion";
 
 export default function CharPage() {
   const { id } = useParams();
@@ -39,61 +41,124 @@ export default function CharPage() {
   if (error) return <p>Lỗi: {error}</p>;
   if (!data) return <p>Không có dữ liệu.</p>;
 
-  const { character, pinyin, meaning, examples = [], exercises = [] } = data;
+  const {
+    character,
+    pinyin,
+    meaning,
+    examples = [],
+    prev,
+    next,
+    exercises = [],
+  } = data;
 
   return (
-    <section className="char-page">
-      <header className="char-header">
-        <h1 className="char-symbol">{character || charId}</h1>
-        <div className="char-meta">
-          {pinyin && (
-            <div>
-              <strong>Âm đọc:</strong> {pinyin}
-            </div>
-          )}
-          {meaning && (
-            <div>
-              <strong>Nghĩa:</strong> {meaning}
-            </div>
-          )}
-        </div>
-      </header>
+    <motion.section
+      className={styles.charPage}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+    >
+      <div className={styles.contentGrid}>
+        {/* Cột trái */}
+        <motion.div
+          className={styles.leftPane}
+          initial={{ x: -30, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className={styles.charSub}>
+            <span className="hsk1">HSK 1</span>
+            <span className="hsk1">Bài 1</span>
+          </div>
+          <div className={styles.charBox}>
+            <HanziWriterBox character={character || charId} size={160} />
+            {pinyin && <div className={styles.pinyin}>{pinyin}</div>}
+          </div>
 
-      <div className="char-grid">
-        <div>
-          <h2>Luyện viết</h2>
-          <HanziWriterBox character={character || charId} size={220} />
-        </div>
+          <motion.div
+            className={styles.vocabBox}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+          >
+            <h3>Từ vựng trong bài :</h3>
+            <p>
+              {character} [{pinyin}] : {meaning}
+            </p>
+          </motion.div>
+        </motion.div>
 
-        <div>
-          <h2>Ví dụ</h2>
-          {examples.length ? (
-            <ul>
-              {examples.map((ex, idx) => (
-                <li key={idx}>{ex}</li>
-              ))}
-            </ul>
-          ) : (
-            <p>(Chưa có ví dụ)</p>
-          )}
-        </div>
+        {/* Cột phải */}
+        <motion.div
+          className={styles.rightPane}
+          initial={{ x: 30, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          <h2 className={styles.practiceTitle}>Luyện tập</h2>
+          <div className="grow"></div>
+          <div className={styles.practiceButtons}>
+            {["✏️ Luyện Viết", "🧩 Ghép từ", "🎤 Phát âm"].map((label, i) => (
+              <motion.button
+                key={i}
+                className={styles.practiceBtn}
+                whileHover={{
+                  scale: 1.05,
+                  boxShadow: "0 4px 12px rgba(178,34,34,0.3)",
+                }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {label}
+              </motion.button>
+            ))}
+          </div>
+          <div className="grow"></div>
+        </motion.div>
       </div>
 
-      <div className="exercises">
-        <h2>Bài tập</h2>
+      {/* Bài tập */}
+      <motion.div
+        className={styles.exercises}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.4 }}
+      >
+        <h2>Bài học :</h2>
         {exercises.length ? (
-          <ul className="exercise-list">
-            {exercises.map((ex) => (
-              <li key={ex.id} className="exercise-item">
-                <strong>{ex.type.toUpperCase()}</strong>:{" "}
-                {ex.question || ex.prompt || "(Nội dung)"}
-              </li>
-            ))}
+          <ul className={styles.exerciseList}>
+            <motion.li
+              key={prev.id}
+              className={styles.exerciseItem}
+              whileHover={{ scale: 1.02 }}
+            >
+              <strong>Trước :</strong> {prev.content || "(Nội dung)"}
+            </motion.li>
+            <motion.li
+              key={next.id}
+              className={styles.exerciseItem}
+              whileHover={{ scale: 1.02 }}
+            >
+              <strong>Sau :</strong> {next.content || "(Nội dung)"}
+            </motion.li>
           </ul>
         ) : (
           <p>(Chưa có bài tập)</p>
         )}
+      </motion.div>
+
+      {/* Điều hướng */}
+      <div className={styles.navigation}>
+        <motion.div whileHover={{ scale: 1.05 }}>
+          <Link to="#" className={styles.prevBtn}>
+            ⬅ Chữ trước
+          </Link>
+        </motion.div>
+        <motion.div whileHover={{ scale: 1.05 }}>
+          <Link to="#" className={styles.nextBtn}>
+            Chữ sau ➡
+          </Link>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 }
