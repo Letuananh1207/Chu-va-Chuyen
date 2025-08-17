@@ -55,6 +55,7 @@ body {
   line-height: 1.5;
   color: #111;
   background: var(--bg-color);
+  overflow: hidden;
 }
 
 a {
@@ -64,7 +65,7 @@ a {
 
 /* Layout cơ bản */
 .container {
-  max-width: 1000px;
+  width: 1000px;
   margin: 0 auto;
   padding: 0 16px;
 }
@@ -101,41 +102,28 @@ a {
   font-size: 21px;
 }
 
-.nav a {
-  margin-right: 12px;
-}
-
-.quick-search {
-  margin-left: auto;
+.app-shell {
   display: flex;
-  gap: 8px;
-}
-.quick-search input {
-  padding: 6px 10px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  min-width: 200px;
-}
-.quick-search button {
-  padding: 6px 12px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background: #f7f7f7;
-  cursor: pointer;
-}
-.quick-search button:hover {
-  background: #eee;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .main-content {
+  flex-grow: 1;
   padding: 24px 0 56px;
 }
 
 .app-footer {
-  border-top: 1px solid #eee;
-  padding: 12px 0;
+  border-top: 1px solid #bbb;
+  padding: 24px 0 12px 0;
   color: #666;
   font-size: 14px;
+  background: url(../assets/shan_xanh.png);
+}
+
+.footer-content > span {
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 0 4px;
 }
 
 /* Trang chủ */

@@ -1,82 +1,101 @@
 .charPage {
-  padding: 20px;
+  padding: 24px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  overflow: hidden;
 }
 
+/* Grid */
 .contentGrid {
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: 32px;
 }
 
-/* Left */
+/* Left Pane */
 .leftPane {
   display: flex;
   flex-direction: column;
-  border-right: 1px dashed #ccc;
-  padding-right: 40px;
+  border-right: 1px dashed grey;
+  padding: 0 30px 20px 0px;
 }
 
 .charSub {
   display: flex;
   gap: 10px;
+  margin-top: 12px;
 }
 
 .charSub > span {
   font-weight: bold;
-  padding: 2px 10px;
-  font-size: 14px;
-  color: white;
+  padding: 4px 12px;
+  font-size: 12px;
+  color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
 .charBox {
   text-align: center;
-  border: 1px dashed #ccc;
-  padding: 16px;
-  background: #fff;
+  padding: 30px 20px;
   margin-bottom: 30px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  position: relative;
   background-image: url(../../assets/logo_watermark.png);
   background-size: 80px;
+  background-repeat: repeat;
+  background-position: center;
 }
 
 .pinyin {
   font-size: 18px;
   font-weight: bold;
   border: 1px solid var(--primary-color);
-  width: 30%;
-  margin: 0 auto;
-  background-color: white;
+  width: 40%;
+  margin: 12px auto 0 auto;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .vocabBox {
   background: #fff;
-  padding: 16px;
-  border-radius: 8px;
-  border-left: 6px solid #b22222;
+  padding: 16px 26px 16px 16px;
+  /* border-radius: 12px 0 0 12px; */
+  border-left: 8px solid #b22222;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  background-image: url(../../assets/logo_watermark.png);
+  background-size: 80px;
+  background-repeat: repeat;
+  background-position: center;
 }
 
 .vocabBox h3 {
   margin-top: 0;
+  padding-bottom: 0.6em;
   color: var(--primary-color);
+  border-bottom: 1px solid var(--border-color);
+  text-align: center;
 }
 
-/* Right */
+/* Right Pane */
 .rightPane {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.9);
   border: 1px solid #eee;
-  border-radius: 8px;
-  padding: 16px;
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   background-image: url(../../assets/logo_watermark.png);
   background-size: 80px;
+  background-repeat: repeat;
+  background-position: center;
 }
 
 .practiceTitle {
   color: #b22222;
-  margin-bottom: 16px;
+  margin: 0 0 16px 0;
   text-align: center;
-  margin: 0;
   padding-bottom: 1em;
   border-bottom: 1px dashed var(--border-color);
 }
@@ -85,65 +104,48 @@
   display: flex;
   justify-content: space-between;
   gap: 16px;
-  margin-bottom: 24px;
+  margin: 24px 0;
 }
 
 .practiceBtn {
   flex: 1;
-  padding: 10px;
+  padding: 12px;
   border: 1px solid #b22222;
-  background: #fff;
+  background: linear-gradient(145deg, #fff, #ffecec);
   color: #b22222;
-  border-radius: 6px;
+  border-radius: 10px;
   cursor: pointer;
+  font-weight: 500;
   transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .practiceBtn:hover {
   background: #b22222;
   color: #fff;
-}
-
-/* Examples */
-.examples {
-  margin-top: 20px;
-}
-
-/* Exercises */
-.exercises {
-  margin-top: 32px;
-}
-
-.exerciseList {
-  list-style: none;
-  padding: 0;
-}
-
-.exerciseItem {
-  padding: 8px;
-  border: 1px solid #eee;
-  border-radius: 6px;
-  margin-bottom: 8px;
-  background: #fafafa;
+  box-shadow: 0 6px 18px rgba(178, 34, 34, 0.3);
 }
 
 /* Navigation */
 .navigation {
   display: flex;
   justify-content: space-between;
-  margin-top: 32px;
+  margin-top: 64px;
 }
 
 .prevBtn,
 .nextBtn {
-  background: #b22222;
+  background: linear-gradient(135deg, #b22222, #ff4c4c);
   color: #fff;
-  padding: 10px 16px;
-  border-radius: 6px;
+  padding: 12px 20px;
   text-decoration: none;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
 }
 
 .prevBtn:hover,
 .nextBtn:hover {
-  opacity: 0.9;
+  opacity: 0.95;
+  transform: translateY(-2px);
 }
