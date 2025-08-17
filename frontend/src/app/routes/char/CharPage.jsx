@@ -56,7 +56,7 @@ export default function CharPage() {
     >
       <div className={styles.contentGrid}>
         {/* Left Pane */}
-        <motion.div className={styles.leftPane}>
+        {/* <motion.div className={styles.leftPane}>
           <div className={styles.charSub}>
             <span className="hsk1">HSK 1</span>
             <span className="hsk1">Bài 1</span>
@@ -71,7 +71,7 @@ export default function CharPage() {
               {character} [{pinyin}] : {meaning}
             </p>
           </div>
-        </motion.div>
+        </motion.div> */}
 
         {/* Right Pane */}
         <motion.div className={styles.rightPane}>
