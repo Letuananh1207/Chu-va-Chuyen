@@ -54,43 +54,22 @@ export default function CharPage() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
     >
-      <div className={styles.contentGrid}>
-        {/* Left Pane */}
-        {/* <motion.div className={styles.leftPane}>
-          <div className={styles.charSub}>
-            <span className="hsk1">HSK 1</span>
-            <span className="hsk1">Bài 1</span>
-          </div>
-          <div className={styles.charBox}>
-            <HanziWriterBox character={character || charId} size={140} />
-            {pinyin && <div className={styles.pinyin}>{pinyin}</div>}
-          </div>
-          <div className={styles.vocabBox}>
-            <h3>Từ vựng trong bài :</h3>
-            <p>
-              {character} [{pinyin}] : {meaning}
-            </p>
-          </div>
-        </motion.div> */}
-
-        {/* Right Pane */}
-        <motion.div className={styles.rightPane}>
-          <h2 className={styles.practiceTitle}>Luyện tập</h2>
-          <div className={styles.practiceButtons}>
-            {practiceButtons.map((label) => (
-              <motion.button
-                key={label}
-                className={styles.practiceBtn}
-                whileHover={{ scale: 1.05 }}
-                onClick={() => setActivePractice(label)}
-              >
-                {label}
-              </motion.button>
-            ))}
-          </div>
-        </motion.div>
-      </div>
-
+      <motion.div className={styles.rightPane}>
+        <h2 className={styles.practiceTitle}>Luyện tập</h2>
+        <div className={styles.practiceButtons}>
+          {practiceButtons.map((label) => (
+            <motion.button
+              key={label}
+              className={styles.practiceBtn}
+              whileHover={{ scale: 1.05 }}
+              onClick={() => setActivePractice(label)}
+            >
+              {label}
+            </motion.button>
+          ))}
+        </div>
+      </motion.div>
+      {/* 
       <div className={styles.navigation}>
         <motion.div whileHover={{ scale: 1.05 }}>
           <Link to="#" className={styles.prevBtn}>
@@ -102,7 +81,7 @@ export default function CharPage() {
             Chữ sau ➡
           </Link>
         </motion.div>
-      </div>
+      </div> */}
 
       {/* Slide toàn bộ nội dung */}
       <AnimatePresence>

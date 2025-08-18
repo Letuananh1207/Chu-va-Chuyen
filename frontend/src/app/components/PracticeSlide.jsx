@@ -52,7 +52,6 @@ export default function PracticeSlide({ type, onClose }) {
       >
         ✖ Đóng
       </button>
-      <h2 style={{ color: "#b22222", marginBottom: "24px" }}>{type}</h2>
       {getContent()}
     </motion.div>
   );
