@@ -9,5 +9,5 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  base: "/Chu-va-Chuyen/",
+  base: "/Chu-va-Chuyen",
 });
